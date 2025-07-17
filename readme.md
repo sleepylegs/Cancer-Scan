@@ -2,7 +2,8 @@
 
 ![CancerScan Logo](cancer_scan_mri.jpeg)
 
-CancerScan is an AI-powered web application designed to classify brain MRI scans. It helps in identifying the presence and type of brain tumors (Glioma, Meningioma, Pituitary) or indicating the absence of a tumor. This tool provides quick, preliminary insights based on machine learning predictions, aiming to assist in early detection and understanding of MRI results.
+CancerScan is an AI-powered web application designed to classify brain MRI scans. It helps in identifying the type of brain tumors (Glioma, Meningioma, Pituitary) or indicate the absence of them.
+This tool provides quick, preliminary insights based on machine learning predictions, aiming to assist in early detection and understanding of MRI results. The model was pre-trained on roboflow and implemented on our own website using their api.
 
 **Disclaimer:** This AI prediction is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for any health concerns.
 
@@ -37,17 +38,17 @@ You can access the live CancerScan application here:
 
 * **HTML5:** For the core structure of the web application.
 
-* **CSS3:** Custom styling using the Poppins font for a modern and clean user interface.
+* **CSS:** Custom styling for a modern and clean user interface.
 
 * **JavaScript:** Powers the interactive elements, image handling, and communication with the AI model.
 
-* **Roboflow.js:** A JavaScript library used for integrating and running the pre-trained machine learning model directly in the browser.
+* **Roboflow:** A platform to pre-train our model and deploy with ease using their API.
 
 ## Usage
 
 1.  **Upload Image:** Click the "Click to Upload" button or drag and drop your brain MRI image into the designated area.
 
-2.  **View Prediction:** The uploaded image will be displayed, and the AI will process it. The prediction result and a confidence score will appear under the "Prediction" section.
+2.  **View Prediction:** The uploaded image will be displayed, and the model will process it. The prediction result and a confidence score will appear under the "Prediction" section.
 
 3.  **Read AI Review:** Get general insights and next steps based on the AI's classification in the "AI Review & Next Steps" section.
 
