@@ -16,12 +16,8 @@ let roboflowModel;
 // Initialize Roboflow.js
 
 
-<<<<<<< HEAD
 // Call initialization when the script loads
 //initializeRoboflow();
-=======
-initializeRoboflow();
->>>>>>> b1c1d71c2f3db2fc8949cf208a939e5c8266cfdc
 
 // --- Event Listeners for File Upload ---
 
