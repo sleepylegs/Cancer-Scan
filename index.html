@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain MRI Classifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Brain MRI Classification</h1>
+        <p>Upload a brain MRI scan to get a classification prediction (Glioma, Meningioma, No Tumor, Pituitary).</p>
+
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+            <p>Drag & Drop your MRI image here</p>
+            <p>- OR -</p>
+            <button id="uploadButton">Click to Upload</button>
+        </div>
+
+        <div class="image-preview" id="imagePreview">
+            <img id="uploadedImage" src="#" alt="MRI Scan Preview" style="display: none;">
+        </div>
+
+        <div class="results-section">
+            <h2>Prediction:</h2>
+            <p id="predictionResult">Upload an image to see the result.</p>
+        </div>
+
+        <div class="ai-review-section">
+            <h2>AI Review & Next Steps:</h2>
+            <p id="aiReview">Insights and recommendations will appear here based on the prediction.</p>
+        </div>
+
+        <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing MRI scan...</p>
+        </div>
+    </div>
+
+    <script src="https://assets.roboflow.com/inference/roboflow.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
