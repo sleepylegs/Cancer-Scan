@@ -15,26 +15,10 @@ const loadingSpinner = document.getElementById('loadingSpinner');
 let roboflowModel; // To store the initialized Roboflow model
 
 // Initialize Roboflow.js
-async function initializeRoboflow() {
-  try {
-    roboflowModel = await roboflow
-      .auth({
-        publishable_key: ROBOTFLOW_API_KEY,
-      })
-      .load({
-        model: MODEL_ID,
-      });
-    console.log('Roboflow model loaded successfully!');
-  } catch (error) {
-    console.error('Error loading Roboflow model:', error);
-    alert(
-      'Failed to load AI model. Please try again later or check your network connection.'
-    );
-  }
-}
+
 
 // Call initialization when the script loads
-initializeRoboflow();
+//initializeRoboflow();
 
 // --- Event Listeners for File Upload ---
 
@@ -75,71 +59,87 @@ uploadArea.addEventListener('drop', (event) => {
 
 // --- Core Logic for Image Handling and Prediction ---
 
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64 = reader.result.split(',')[1]; // Only data after comma
+      resolve(base64);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+
+async function predictWithRoboflowAPI(base64Image) {
+  const response = await fetch(
+    'https://classify.roboflow.com/brainmri_classification/1?api_key=OgC3ItbaT46SvzYTwQAJ',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `image=${base64Image}`
+    }
+  );
+  return await response.json(); // Note: Still check for !response.ok to catch errors
+}
+
+
 async function handleFile(file) {
   if (!file.type.startsWith('image/')) {
     alert('Please upload an image file (e.g., JPG, PNG).');
     return;
   }
 
-  // Reset previous results
   predictionResult.textContent = 'Analyzing...';
   aiReview.textContent = 'Please wait while the AI processes the image.';
-  uploadedImage.style.display = 'none'; // Hide old image
-  loadingSpinner.style.display = 'flex'; // Show loading spinner
+  uploadedImage.style.display = 'none';
+  loadingSpinner.style.display = 'flex';
 
-  const reader = new FileReader();
-  reader.onload = async (e) => {
-    uploadedImage.src = e.target.result;
-    uploadedImage.style.display = 'block'; // Display the uploaded image
+  try {
+    const base64Image = await fileToBase64(file);
 
-    // Wait for image to load in DOM before passing to Roboflow
-    uploadedImage.onload = async () => {
-      if (roboflowModel) {
-        try {
-          const prediction = await roboflowModel.classify({
-            // Roboflow.js can take an HTML Image element directly
-            image: uploadedImage,
-          });
+    // Set preview
+    uploadedImage.src = 'data:image/*;base64,' + base64Image;
+    uploadedImage.style.display = 'block';
 
-          console.log('Prediction Result:', prediction);
-          displayPrediction(prediction);
-        } catch (error) {
-          console.error('Error during prediction:', error);
-          predictionResult.textContent = 'Error: Could not get prediction.';
-          aiReview.textContent =
-            'There was an issue processing the image. Please try again.';
-        } finally {
-          loadingSpinner.style.display = 'none'; // Hide spinner
-        }
-      } else {
-        console.error('Roboflow model not initialized.');
-        predictionResult.textContent = 'Error: AI model not ready.';
-        aiReview.textContent =
-          'The AI model is still loading or failed to load. Please refresh the page.';
-        loadingSpinner.style.display = 'none'; // Hide spinner
-      }
-    };
-  };
-  reader.readAsDataURL(file);
+    // Make API request
+    const prediction = await predictWithRoboflowAPI(base64Image);
+    displayPrediction(prediction);
+  } catch (error) {
+    predictionResult.textContent = 'Error: Could not get prediction.';
+    aiReview.textContent = 'There was an issue processing the image. Please try again.';
+    console.error(error);
+  } finally {
+    loadingSpinner.style.display = 'none';
+  }
 }
 
 function displayPrediction(prediction) {
-  if (
+  let predictedClass = '';
+  let confidence = 0;
+
+  // Prefer API 'top' and 'confidence' fields for classification endpoint
+  if (prediction && prediction.top && prediction.confidence !== undefined) {
+    predictedClass = prediction.top;
+    confidence = (prediction.confidence * 100).toFixed(2);
+  }
+  // Fallback for older API shape
+  else if (
     prediction &&
     prediction.predictions &&
     prediction.predictions.length > 0
   ) {
-    // Find the prediction with the highest confidence
     const bestPrediction = prediction.predictions.reduce((prev, current) =>
       prev.confidence > current.confidence ? prev : current
     );
+    predictedClass = bestPrediction.class;
+    confidence = (bestPrediction.confidence * 100).toFixed(2);
+  }
 
-    const predictedClass = bestPrediction.class;
-    const confidence = (bestPrediction.confidence * 100).toFixed(2);
-
+  if (predictedClass) {
     predictionResult.innerHTML = `<strong>${predictedClass}</strong> (Confidence: ${confidence}%)`;
 
-    // --- AI Review Logic (Customize this for your hackathon!) ---
     let reviewText =
       'Please consult a medical professional for a definitive diagnosis and treatment plan. This AI prediction is for informational purposes only and is not a substitute for professional medical advice.';
 
