@@ -36,7 +36,7 @@ You can access the live CancerScan application here:
 
 ## Technologies Used
 
-* **HTML5:** For the core structure of the web application.
+* **HTML:** For the core structure of the web application.
 
 * **CSS:** Custom styling for a modern and clean user interface.
 
@@ -48,9 +48,9 @@ You can access the live CancerScan application here:
 
 1.  **Upload Image:** Click the "Click to Upload" button or drag and drop your brain MRI image into the designated area.
 
-2.  **View Prediction:** The uploaded image will be displayed, and the model will process it. The prediction result and a confidence score will appear under the "Prediction" section.
+2.  **View Prediction:** The uploaded image will be displayed, and the model will process it. The prediction result will appear below.
 
-3.  **Read AI Review:** Get general insights and next steps based on the AI's classification in the "AI Review & Next Steps" section.
+3.  **Read AI Review:** Get general AI-reviewed insights and next steps to fllow.
 
 ## Credits
 
