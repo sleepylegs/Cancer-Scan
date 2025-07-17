@@ -1,6 +1,5 @@
-// Roboflow Model Details (replace with your actual key if different, but this is the one you provided)
 const ROBOTFLOW_API_KEY = 'rf_dqDbILKhaEMFeRG4AC8EQYkAxl33';
-const MODEL_ID = 'brainmri_classification/1'; // Your model ID and version
+const MODEL_ID = 'brainmri_classification/1';
 
 // Get DOM Elements
 const uploadArea = document.getElementById('uploadArea');
@@ -12,7 +11,7 @@ const predictionResult = document.getElementById('predictionResult');
 const aiReview = document.getElementById('aiReview');
 const loadingSpinner = document.getElementById('loadingSpinner');
 
-let roboflowModel; // To store the initialized Roboflow model
+let roboflowModel;
 
 // Initialize Roboflow.js
 async function initializeRoboflow() {
@@ -33,7 +32,6 @@ async function initializeRoboflow() {
   }
 }
 
-// Call initialization when the script loads
 initializeRoboflow();
 
 // --- Event Listeners for File Upload ---
