@@ -1,139 +1,238 @@
-/* Base Styles */
 body {
+  font-family: 'Poppins', sans-serif; /* Using Poppins from Google Fonts */
+  background-color: #fdf5e6; /* Old Lace - light background */
+  color: #36454f; /* Charcoal - for main text */
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom, #ff9999, #f5b7b1);
-  color: #000;
+  padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
+  box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 .container {
-  width: 500px;
-  padding: 30px;
-  background-color: #f4a8a1;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 15px; /* More rounded corners */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+  max-width: 900px; /* Slightly wider */
+  width: 100%;
+  text-align: center;
+  border: 1px solid #ffc0cb; /* Light pink border */
 }
 
-/* Header */
-h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 10px;
+/* Header and Logo Styling */
+.app-header {
+  margin-bottom: 30px;
+}
+
+.logo-area {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 15px; /* Space between logo and title */
+  margin-bottom: 15px;
 }
 
-h1::before {
-  content: url('brain_logo.png'); /* Replace with actual logo URL */
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  margin-right: 10px;
+.app-logo {
+  height: 60px; /* Adjust logo size as needed */
+  width: auto;
+  border-radius: 50%; /* If you want a circular logo */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 3.2em; /* Larger title */
+  color: #ff69b4; /* Hot Pink for title */
+  font-weight: 700;
+  margin: 0; /* Remove default margin */
+  letter-spacing: 1px;
+}
+
+.app-header p {
+  font-size: 1.1em;
+  color: #5a5a5a;
+  margin-top: 10px;
+}
+
+/* Section Descriptions */
+.section-description {
+  font-size: 1.05em;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.6;
 }
 
 /* Upload Area */
-.upload-area {
-  border: 2px dotted #555;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  background-color: #f9d5d3;
-  margin: 20px 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.upload-section {
+  margin-bottom: 40px;
 }
 
-.upload-area.drag-over {
-  background-color: #ffecec;
+.upload-area {
+  border: 3px dashed #ffc0cb; /* Light pink dashed border */
+  border-radius: 12px;
+  padding: 50px 30px; /* More padding */
+  background-color: #fff0f5; /* Lavender Blush - very light pink background */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  border-color: #ff69b4; /* Hot Pink on hover */
+  background-color: #ffe0f0; /* Lighter pink on hover */
 }
 
 .upload-area p {
-  margin: 8px 0;
-  font-size: 14px;
+  font-size: 1.2em; /* Slightly larger text */
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
-/* Upload Button */
+.or-text {
+  font-size: 1em;
+  color: #888;
+  margin: 15px 0;
+}
+
 #uploadButton {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #e8a6ff;
-  color: #000;
-  font-weight: 600;
+  background-color: #87ceeb; /* Sky Blue button */
+  color: white;
   border: none;
-  border-radius: 10px;
+  padding: 15px 30px; /* Larger button */
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(135, 206, 235, 0.4);
 }
 
 #uploadButton:hover {
-  background-color: #d68dff;
+  background-color: #6495ed; /* Cornflower Blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
 }
 
 /* Image Preview */
-.image-preview img {
+.image-preview {
+  margin: 30px auto;
   max-width: 100%;
-  max-height: 300px;
-  margin-top: 10px;
-  border-radius: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* Results */
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+  border: 3px solid #ff69b4; /* Hot Pink border around image */
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Results and AI Review Sections */
 .results-section,
 .ai-review-section {
-  margin-top: 30px;
+  background-color: #fffafa; /* Snow - very light, almost white pink */
+  border: 1px solid #ffc0cb; /* Light pink border */
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 35px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .results-section h2,
 .ai-review-section h2 {
-  font-size: 18px;
+  text-align: center;
+  font-size: 1.8em;
+  color: #ff69b4; /* Hot Pink for section titles */
+  margin-bottom: 20px;
   font-weight: 600;
-  margin-bottom: 8px;
 }
 
-#predictionResult,
+#predictionResult {
+  font-size: 1.8em; /* Larger prediction text */
+  font-weight: bold;
+  color: #28a745; /* Green for success/prediction */
+  text-align: center;
+  margin-top: 15px;
+  word-wrap: break-word; /* Ensure long words break */
+}
+
 #aiReview {
-  background-color: #fbecec;
-  padding: 15px;
-  border-radius: 10px;
-  min-height: 80px;
-  font-size: 14px;
+  font-size: 1.15em;
+  color: #444;
+  line-height: 1.8;
 }
 
-/* Spinner */
+/* Loading Spinner */
 .loading-spinner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-  justify-content: center;
+  margin-top: 40px;
+  color: #ff69b4; /* Pink text for loading */
+  font-weight: 600;
 }
 
 .spinner {
-  width: 20px;
-  height: 20px;
-  border: 3px solid #fff;
-  border-top: 3px solid #555;
+  border: 6px solid rgba(255, 105, 180, 0.2); /* Light pink background for spinner */
+  border-top: 6px solid #ff69b4; /* Hot Pink spinner top */
   border-radius: 50%;
+  width: 60px; /* Larger spinner */
+  height: 60px;
   animation: spin 1s linear infinite;
+  margin-bottom: 15px;
 }
 
 @keyframes spin {
-  to {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
     transform: rotate(360deg);
   }
 }
 
-/* Footer (if needed) */
-footer {
-  margin-top: 30px;
-  font-size: 12px;
-  text-align: center;
-  color: #333;
+/* Media Queries for Responsiveness (optional, but good practice) */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 25px;
+  }
+  .app-header h1 {
+    font-size: 2.5em;
+  }
+  .app-logo {
+    height: 50px;
+  }
+  .upload-area {
+    padding: 30px 15px;
+  }
+  #uploadButton {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+  .results-section h2,
+  .ai-review-section h2 {
+    font-size: 1.5em;
+  }
+  #predictionResult {
+    font-size: 1.5em;
+  }
+  #aiReview {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 2em;
+  }
+  .app-logo {
+    height: 40px;
+  }
+  .upload-area p {
+    font-size: 1em;
+  }
 }
