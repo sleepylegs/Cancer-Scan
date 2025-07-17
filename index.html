@@ -4,24 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain MRI Classifier</title>
+    <title>CancerScan - Brain MRI Classifier</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <h1>Brain MRI Classification</h1>
-        <p>Upload a brain MRI scan to get a classification prediction (Glioma, Meningioma, No Tumor, Pituitary).</p>
+        <header class="app-header">
+            <div class="logo-area">
+                <img src="cancer_scan_logo.png" alt="CancerScan Logo" class="app-logo">
+                <h1>CancerScan</h1>
+            </div>
+            <p>Your AI-powered tool for Brain MRI Classification.</p>
+        </header>
 
-        <div class="upload-area" id="uploadArea">
-            <input type="file" id="imageUpload" accept="image/*" style="display: none;">
-            <p>Drag & Drop your MRI image here</p>
-            <p>- OR -</p>
-            <button id="uploadButton">Click to Upload</button>
+        <div class="upload-section">
+            <p class="section-description">Upload a brain MRI scan to get a classification prediction (Glioma,
+                Meningioma, No Tumor, Pituitary).</p>
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                <p>Drag & Drop your MRI image here</p>
+                <p class="or-text">- OR -</p>
+                <button id="uploadButton">Click to Upload</button>
+            </div>
         </div>
 
         <div class="image-preview" id="imagePreview">
             <img id="uploadedImage" src="#" alt="MRI Scan Preview" style="display: none;">
+        </div>
+
+        <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing MRI scan...</p>
         </div>
 
         <div class="results-section">
@@ -32,11 +47,6 @@
         <div class="ai-review-section">
             <h2>AI Review & Next Steps:</h2>
             <p id="aiReview">Insights and recommendations will appear here based on the prediction.</p>
-        </div>
-
-        <div class="loading-spinner" id="loadingSpinner" style="display: none;">
-            <div class="spinner"></div>
-            <p>Analyzing MRI scan...</p>
         </div>
     </div>
 

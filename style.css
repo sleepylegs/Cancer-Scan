@@ -1,139 +1,139 @@
+/* Base Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f7f6;
-  color: #333;
   margin: 0;
-  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #ff9999, #f5b7b1);
+  color: #000;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   min-height: 100vh;
 }
 
 .container {
-  background-color: #fff;
-  padding: 30px 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  width: 100%;
-  text-align: center;
+  width: 500px;
+  padding: 30px;
+  background-color: #f4a8a1;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1,
-h2 {
-  color: #2c3e50;
-  margin-bottom: 20px;
-}
-
-p {
-  line-height: 1.6;
+/* Header */
+h1 {
+  font-size: 28px;
+  font-weight: 700;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
+h1::before {
+  content: url('brain_logo.png'); /* Replace with actual logo URL */
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Upload Area */
 .upload-area {
-  border: 3px dashed #a8dadc;
-  border-radius: 8px;
-  padding: 40px 20px;
-  margin: 30px 0;
-  background-color: #f0f8ff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.upload-area:hover {
-  border-color: #457b9d;
-  background-color: #e0f0ff;
-}
-
-.upload-area p {
-  font-size: 1.1em;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-#uploadButton {
-  background-color: #457b9d;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 5px;
-  font-size: 1em;
+  border: 2px dotted #555;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9d5d3;
+  margin: 20px 0;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
+.upload-area.drag-over {
+  background-color: #ffecec;
+}
+
+.upload-area p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+/* Upload Button */
+#uploadButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #e8a6ff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 #uploadButton:hover {
-  background-color: #1d3557;
+  background-color: #d68dff;
 }
 
-.image-preview {
-  margin: 20px auto;
-  max-width: 100%;
-}
-
+/* Image Preview */
 .image-preview img {
   max-width: 100%;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  display: block; /* Ensures it doesn't leave extra space below */
-  margin: 0 auto; /* Centers the image */
+  max-height: 300px;
+  margin-top: 10px;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Results */
 .results-section,
 .ai-review-section {
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 20px;
   margin-top: 30px;
-  text-align: left;
 }
 
 .results-section h2,
 .ai-review-section h2 {
-  text-align: center;
-  font-size: 1.5em;
-  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
-#predictionResult {
-  font-size: 1.4em;
-  font-weight: bold;
-  color: #28a745; /* Green for success */
-  text-align: center;
-  margin-top: 10px;
-}
-
+#predictionResult,
 #aiReview {
-  font-size: 1.1em;
-  color: #555;
+  background-color: #fbecec;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 80px;
+  font-size: 14px;
 }
 
-/* Loading Spinner */
+/* Spinner */
 .loading-spinner {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
 }
 
 .spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-top: 4px solid #457b9d;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-top: 3px solid #555;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
   animation: spin 1s linear infinite;
-  margin-bottom: 10px;
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
+  to {
     transform: rotate(360deg);
   }
+}
+
+/* Footer (if needed) */
+footer {
+  margin-top: 30px;
+  font-size: 12px;
+  text-align: center;
+  color: #333;
 }
