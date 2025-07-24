@@ -1,5 +1,5 @@
 const ROBOTFLOW_API_KEY = 'rf_dqDbILKhaEMFeRG4AC8EQYkAxl33';
-const MODEL_ID = 'brainmri_classification/1';
+const MODEL_ID = 'brain-mri-classification-jldfa/1';
 
 // Get DOM Elements
 const uploadArea = document.getElementById('uploadArea');
@@ -14,7 +14,6 @@ const loadingSpinner = document.getElementById('loadingSpinner');
 let roboflowModel;
 
 // Initialize Roboflow.js
-
 
 // Call initialization when the script loads
 //initializeRoboflow();
@@ -70,19 +69,17 @@ function fileToBase64(file) {
   });
 }
 
-
 async function predictWithRoboflowAPI(base64Image) {
   const response = await fetch(
     'https://classify.roboflow.com/brainmri_classification/1?api_key=OgC3ItbaT46SvzYTwQAJ',
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `image=${base64Image}`
+      body: `image=${base64Image}`,
     }
   );
   return await response.json(); // Note: Still check for !response.ok to catch errors
 }
-
 
 async function handleFile(file) {
   if (!file.type.startsWith('image/')) {
@@ -107,7 +104,8 @@ async function handleFile(file) {
     displayPrediction(prediction);
   } catch (error) {
     predictionResult.textContent = 'Error: Could not get prediction.';
-    aiReview.textContent = 'There was an issue processing the image. Please try again.';
+    aiReview.textContent =
+      'There was an issue processing the image. Please try again.';
     console.error(error);
   } finally {
     loadingSpinner.style.display = 'none';
