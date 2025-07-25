@@ -1,25 +1,25 @@
 body {
-  font-family: 'Poppins', sans-serif; /* Using Poppins from Google Fonts */
-  background-color: #fdf5e6; /* Old Lace - light background */
-  color: #36454f; /* Charcoal - for main text */
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdf5e6;
+  color: #36454f;
   margin: 0;
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  box-sizing: border-box; /* Include padding in element's total width and height */
+  box-sizing: border-box;
 }
 
 .container {
   background-color: #fff;
   padding: 30px 40px;
-  border-radius: 15px; /* More rounded corners */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More prominent shadow */
-  max-width: 900px; /* Slightly wider */
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  max-width: 900px;
   width: 100%;
   text-align: center;
-  border: 1px solid #ffc0cb; /* Light pink border */
+  border: 1px solid #ffc0cb;
 }
 
 /* Header and Logo Styling */
@@ -31,22 +31,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px; /* Space between logo and title */
+  gap: 15px;
   margin-bottom: 15px;
 }
 
 .app-logo {
-  height: 60px; /* Adjust logo size as needed */
+  height: 60px;
   width: auto;
-  border-radius: 50%; /* If you want a circular logo */
+  border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .app-header h1 {
-  font-size: 3.2em; /* Larger title */
-  color: #ff69b4; /* Hot Pink for title */
+  font-size: 3.2em;
+  color: #ff69b4;
   font-weight: 700;
-  margin: 0; /* Remove default margin */
+  margin: 0;
   letter-spacing: 1px;
 }
 
@@ -70,21 +70,21 @@ body {
 }
 
 .upload-area {
-  border: 3px dashed #ffc0cb; /* Light pink dashed border */
+  border: 3px dashed #ffc0cb;
   border-radius: 12px;
-  padding: 50px 30px; /* More padding */
-  background-color: #fff0f5; /* Lavender Blush - very light pink background */
+  padding: 50px 30px;
+  background-color: #fff0f5;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .upload-area:hover {
-  border-color: #ff69b4; /* Hot Pink on hover */
-  background-color: #ffe0f0; /* Lighter pink on hover */
+  border-color: #ff69b4;
+  background-color: #ffe0f0;
 }
 
 .upload-area p {
-  font-size: 1.2em; /* Slightly larger text */
+  font-size: 1.2em;
   color: #666;
   margin-bottom: 15px;
   font-weight: 600;
@@ -97,10 +97,10 @@ body {
 }
 
 #uploadButton {
-  background-color: #87ceeb; /* Sky Blue button */
+  background-color: #87ceeb;
   color: white;
   border: none;
-  padding: 15px 30px; /* Larger button */
+  padding: 15px 30px;
   border-radius: 8px;
   font-size: 1.1em;
   font-weight: 600;
@@ -110,8 +110,8 @@ body {
 }
 
 #uploadButton:hover {
-  background-color: #6495ed; /* Cornflower Blue on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+  background-color: #6495ed;
+  transform: translateY(-2px);
 }
 
 /* Image Preview */
@@ -121,20 +121,23 @@ body {
 }
 
 .image-preview img {
-  max-width: 100%;
+  max-width: 350px;
+  max-height: 350px;
+  width: auto;
   height: auto;
-  border: 3px solid #ff69b4; /* Hot Pink border around image */
+  border: 3px solid #ff69b4;
   border-radius: 10px;
   display: block;
   margin: 0 auto;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
 }
 
 /* Results and AI Review Sections */
 .results-section,
 .ai-review-section {
-  background-color: #fffafa; /* Snow - very light, almost white pink */
-  border: 1px solid #ffc0cb; /* Light pink border */
+  background-color: #fffafa;
+  border: 1px solid #ffc0cb;
   border-radius: 12px;
   padding: 25px;
   margin-top: 35px;
@@ -146,18 +149,18 @@ body {
 .ai-review-section h2 {
   text-align: center;
   font-size: 1.8em;
-  color: #ff69b4; /* Hot Pink for section titles */
+  color: #ff69b4;
   margin-bottom: 20px;
   font-weight: 600;
 }
 
 #predictionResult {
-  font-size: 1.8em; /* Larger prediction text */
+  font-size: 1.8em;
   font-weight: bold;
-  color: #28a745; /* Green for success/prediction */
+  color: #28a745;
   text-align: center;
   margin-top: 15px;
-  word-wrap: break-word; /* Ensure long words break */
+  word-wrap: break-word;
 }
 
 #aiReview {
@@ -172,15 +175,15 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
-  color: #ff69b4; /* Pink text for loading */
+  color: #ff69b4;
   font-weight: 600;
 }
 
 .spinner {
-  border: 6px solid rgba(255, 105, 180, 0.2); /* Light pink background for spinner */
-  border-top: 6px solid #ff69b4; /* Hot Pink spinner top */
+  border: 6px solid rgba(255, 105, 180, 0.2);
+  border-top: 6px solid #ff69b4;
   border-radius: 50%;
-  width: 60px; /* Larger spinner */
+  width: 60px;
   height: 60px;
   animation: spin 1s linear infinite;
   margin-bottom: 15px;
@@ -195,7 +198,7 @@ body {
   }
 }
 
-/* Media Queries for Responsiveness (optional, but good practice) */
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .container {
     padding: 20px 25px;
@@ -235,4 +238,85 @@ body {
   .upload-area p {
     font-size: 1em;
   }
+}
+
+/* Prediction Card */
+.prediction-card {
+  background: #fef6f8;
+  border: 2px solid #ffc0cb;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.prediction-class {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #ff69b4;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+/* Confidence Bar */
+.confidence-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.confidence-text {
+  font-size: 1.1em;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.confidence-bar-bg {
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  height: 16px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #ffc0cb;
+}
+
+.confidence-bar-fill {
+  background: linear-gradient(90deg, #ff69b4, #87ceeb);
+  height: 100%;
+  width: 0;
+  transition: width 0.8s ease-in-out;
+}
+
+/* AI Review Section */
+#aiReview {
+  background: #fefefe;
+  padding: 15px 20px;
+  border-radius: 10px;
+  line-height: 1.8;
+  font-size: 1.1em;
+  border-left: 5px solid #ff69b4;
+  margin-top: 20px;
+}
+
+/* Error text */
+.error-text {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+#aiReview {
+  background: #fffefa;
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 1.7;
+  font-size: 1.05em;
+  border-left: 5px solid #ff69b4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#aiReview strong {
+  color: #ff69b4;
+  font-weight: 600;
 }
