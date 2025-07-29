@@ -24,11 +24,18 @@
                 Meningioma, No Tumor, Pituitary).</p>
             <div class="upload-area" id="uploadArea">
                 <input type="file" id="imageUpload" accept="image/*" style="display: none;">
-                <p>Drag & Drop your MRI image here</p>
-                <p class="or-text">- OR -</p>
-                <button id="uploadButton">Click to Upload</button>
+                <div class="upload-placeholder" id="uploadPlaceholder">
+                    <p>Drag & Drop your MRI image here</p>
+                    <p class="or-text">- OR -</p>
+                    <button id="uploadButton">Click to Upload</button>
+                </div>
+                <div class="uploaded-preview" id="uploadedPreview" style="display: none;">
+                    <img id="uploadedImage" src="#" alt="MRI Preview">
+                    <span class="remove-image" id="removeImage">&times;</span>
+                </div>
             </div>
         </div>
+
 
         <div class="image-preview" id="imagePreview">
             <img id="uploadedImage" src="#" alt="MRI Scan Preview" style="display: none;">
