@@ -20,29 +20,29 @@ You can access the live CancerScan application here:
 
 * **AI-Powered Classification:** Utilizes a pre-trained machine learning model to classify MRI scans into one of four categories:
 
-    * **Glioma**
-
-    * **Meningioma**
-
     * **No Tumor**
 
-    * **Pituitary**
+    * **Pituitary Tumor**
 
-* **Confidence Score:** Displays the confidence level of the AI's prediction.
+    * **Meningioma Tumor**
 
-* **AI Review & Next Steps:** Provides general insights and recommendations based on the classification result.
+    * **Glioma Tumor**
 
-* **Responsive Design:** Optimized for seamless viewing and interaction across various devices (desktop, tablet, mobile).
+* **Confidence Score:** Displays the confidence level of the models's prediction.
+
+* **AI Review & Next Steps:** Provides general insights and recommendations based on the result.
+
+* **Responsive Design:** Extremly lightweight and friendly to use across various devices (desktop, tablet, mobile).
 
 ## Technologies Used
 
-* **HTML:** For the core structure of the web application.
+* **HTML**
 
-* **CSS:** Custom styling for a modern and clean user interface.
+* **CSS**
 
-* **JavaScript:** Powers the interactive elements, image handling, and communication with the AI model.
+* **JavaScript**
 
-* **Roboflow:** A platform to pre-train our model and deploy with ease using their API.
+* **Roboflow**
 
 ## Usage
 
